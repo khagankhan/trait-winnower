@@ -1,8 +1,7 @@
 // tests/cli.rs
 //! Trait Winnower CLI tests.
 
-use assert_cmd::Command;
-use assert_cmd::cargo::cargo_bin;
+use assert_cmd::{Command, cargo};
 use assert_fs::assert::PathAssert;
 use assert_fs::fixture::FileWriteStr;
 use assert_fs::fixture::PathChild;
@@ -13,7 +12,7 @@ use trait_winnower::config::Config;
 type TestResult = Result<(), Box<dyn std::error::Error>>;
 
 fn tw_cmd() -> Command {
-    Command::new(cargo_bin("trait-winnower"))
+    Command::new(cargo::cargo_bin!("trait-winnower"))
 }
 
 #[test]
